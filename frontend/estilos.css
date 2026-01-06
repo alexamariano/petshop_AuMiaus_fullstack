@@ -1,0 +1,108 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #ff8c00;
+    color: white;
+    padding: 15px 20px; 
+    text-align: center;
+}
+
+
+header h1 img {
+    height: 70px; 
+    width: auto; 
+}
+
+header nav {
+    margin-top: 10px; 
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 15px; 
+}
+
+section {
+    background-color: white;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+h2 {
+    color: #008080;
+    border-bottom: 2px solid #ff8c00;
+    display: inline-block;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+   
+    max-width: 400px; 
+    margin: 0 auto; 
+}
+
+.item-servico {
+    background-color: #e0f7fa;
+    margin: 10px 0;
+    padding: 15px;
+    border: 1px solid #008080;
+    border-radius: 5px; 
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #333;
+    color: white;
+}
+
+/* ESTILOS DA SEÇÃO CADASTRO */
+#cadastro-usuario {
+    background-color: #f0f2f5; /* Fundo diferente para destacar */
+}
+
+#form-cadastro {
+    background-color: #ffffff;
+    padding: 40px;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto; /* Centraliza o card */
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#form-cadastro input {
+    padding: 14px 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+}
+
+#form-cadastro button {
+    background-color: #ff9f43; /* Laranja do logo */
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#form-cadastro button:hover {
+    background-color: #e58e3c;
+}
