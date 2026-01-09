@@ -46,3 +46,18 @@ Siga este passo a passo para testar a aplicação:
 ### 1. Clone o repositório
 ```bash
 git clone [https://github.com/SEU-USUARIO/NOME-DO-REPO.git](https://github.com/SEU-USUARIO/NOME-DO-REPO.git)
+
+## 📡 Rotas da API
+
+| Método | Rota        | Descrição                           |
+| :----- | :---------- | :---------------------------------- |
+| `GET`  | `/servicos` | Retorna a lista de serviços do PetShop |
+| `POST` | `/cadastro` | Recebe JSON com dados do usuário e salva no Banco |
+
+👨‍💻 Autor
+Desenvolvido por Alex Mariano
+
+
+Entre em contato: https://www.linkedin.com/in/alex-almeida-mariano/
+
+Este projeto foi desenvolvido como parte de estudos em Desenvolvimento Full Stack.
