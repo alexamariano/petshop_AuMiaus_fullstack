@@ -62,7 +62,7 @@ O projeto conta com testes End-to-End (E2E) desenvolvidos em Cypress, garantindo
 * ✅ Bloqueio de e-mails duplicados (Validação Backend)
 * ✅ Validação de formulário HTML5
 
-![Print dos Testes Passando](./projeto_AuMiaus/cypress.JPG)
+![Print dos Testes Passando](./print-teste.jpg)
 
 👨‍💻 Autor
 Desenvolvido por Alex Mariano
