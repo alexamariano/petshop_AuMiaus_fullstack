@@ -52,33 +52,30 @@ app.get('/servicos', (req, res) => {
     res.json(servicos);
 });
 
-// Define um endpoint POST em '/cadastro' para cadastrar novos usuários
-app.post('/cadastro', (req, res) => {
+// Rota de Cadastro Corrigida com ASYNC/AWAIT
+app.post('/cadastro', async (req, res) => {
+    console.log("--- NOVA TENTATIVA DE CADASTRO ---"); // LOG 1
+    const { nome_completo, email, mensagem } = req.body;
+    console.log("Recebi dados:", email); // LOG 2
 
-    //1 Obter os dados do corpo da requisição
-    const {nome_completo, email, mensagem} = req.body;
+    try {
+        const usuarioExistente = await Usuario.findOne({ email });
 
-    //2 Consultar o usuário pelo email no banco de dados
-    Usuario.findOne({email})
-      .then(emailExiste => {
+        if (usuarioExistente) {
+            console.log("E-mail já existe! Retornando Erro 400."); // LOG 3
+            return res.status(400).json({ message: "Erro: Email já cadastrado" });
+        }
 
-        //2.1 Se já existir um usuário com esse email, retorna um erro
-        if(emailExiste)
-          return res.status(400).json({message: "Email já cadastrado"});
+        const novoUsuario = new Usuario({ nome_completo, email, mensagem });
+        await novoUsuario.save();
+        
+        console.log("Salvo com sucesso! Retornando 201."); // LOG 4
+        res.status(201).json({ message: "Cadastro realizado com sucesso." });
 
-        //2.2 Cria um novo usuário com os dados fornecidos
-        const novoUsuario = new Usuario({nome_completo, email, mensagem});
-
-        //2.3 Salva o novo usuário no banco de dados
-        novoUsuario.save();
-
-        //2.4 Retorna uma mensagem de sucesso
-        return res.status(200).json({message: "Cadastro realizado com sucesso."})
-      })
-      .catch(error => {
-        console.error("Erro no cadastro", error);
-        return res.status(500).json({message: "Erro no servidor."});
-      });
+    } catch (error) {
+        console.error("ERRO FATAL:", error); // LOG DE ERRO
+        res.status(500).json({ message: "Erro interno ao salvar." });
+    }
 });
 
 // Inicia o servidor na porta 3000

@@ -56,6 +56,14 @@ git clone [https://github.com/SEU-USUARIO/NOME-DO-REPO.git](https://github.com/S
 | `GET`  | `/servicos` | Retorna a lista de serviços do PetShop |
 | `POST` | `/cadastro` | Recebe JSON com dados do usuário e salva no Banco |
 
+## 🧪 Testes Automatizados (QA)
+O projeto conta com testes End-to-End (E2E) desenvolvidos em Cypress, garantindo:
+* ✅ Cadastro com sucesso (Happy Path)
+* ✅ Bloqueio de e-mails duplicados (Validação Backend)
+* ✅ Validação de formulário HTML5
+
+![Print dos Testes Passando](./projeto_AuMiaus/cypress.JPG)
+
 👨‍💻 Autor
 Desenvolvido por Alex Mariano
 
