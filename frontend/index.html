@@ -2,59 +2,88 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>PetShop AuMiaus com Logo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetShop AuMiaus | Cuidado e Carinho</title>
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
 
     <header>
         <h1>
-            <img src="logo.png" alt="Logo AuMiaus">
+            <img src="logo.png" alt="AuMiaus Logo"> 
         </h1>
         <nav>
-            <a href="#sobre">Sobre</a> | 
-            <a href="#servicos">Serviços</a> | 
+            <a href="#sobre">Sobre</a>
+            <a href="#servicos">Serviços</a>
             <a href="#contato">Contato</a>
+            <a href="#cadastro-usuario">Cadastro</a>
         </nav>
     </header>
 
     <section id="sobre">
-        <h2>Sobre Nós</h2>
-        <p>O AuMiaus é o lugar perfeito para o seu melhor amigo. Cuidamos com amor e carinho.</p>
+        <h2>🐾 Sobre Nós</h2>
+        <p>Bem-vindo ao <strong>AuMiaus</strong>! Somos apaixonados por animais e tecnologia.</p>
+        <p>Nosso objetivo é oferecer um ambiente seguro, divertido e relaxante para o seu melhor amigo, enquanto você acompanha tudo com tranquilidade.</p>
+        <br>
+        <p><em>"Tratamos seu pet como se fosse da nossa família."</em></p>
     </section>
 
     <section id="servicos">
-        <h2>Nossos Serviços</h2>
+        <h2>🛁 Nossos Serviços</h2>
         <ul>
-            <li class="item-servico">Banho e Tosa</li>
-            <li class="item-servico">Veterinário</li>
-            <li class="item-servico">Hotelzinho</li>
+            <li class="item-servico">
+                <div style="font-size: 3rem;">🚿</div>
+                <h3>Banho e Tosa</h3>
+                <p>Produtos hipoalergênicos e tosa especializada.</p>
+                <span class="preco">R$ 60,00</span>
+            </li>
+            <li class="item-servico">
+                <div style="font-size: 3rem;">🩺</div>
+                <h3>Veterinário</h3>
+                <p>Consultas de rotina, vacinação e exames.</p>
+                <span class="preco">R$ 120,00</span>
+            </li>
+            <li class="item-servico">
+                <div style="font-size: 3rem;">🏨</div>
+                <h3>Hotelzinho</h3>
+                <p>Hospedagem segura com recreação 24h.</p>
+                <span class="preco">R$ 80,00/dia</span>
+            </li>
         </ul>
     </section>
 
     <section id="contato">
-        <h2>Contato</h2>
-        <p>Endereço: Rua dos Pets, 100</p>
-        <p>Email: <a href="mailto:contato@aumiaus.com">contato@aumiaus.com</a></p>
+        <h2>📞 Contato</h2>
+        <p>Estamos prontos para atender você.</p>
+        <div style="margin-top: 20px;">
+            <p>📍 <strong>Endereço:</strong> Rua dos Pets, 100 - Belo Horizonte</p>
+            <p>📧 <strong>Email:</strong> <a href="mailto:contato@aumiaus.com">contato@aumiaus.com</a></p>
+            <p>📱 <strong>WhatsApp:</strong> (31) 99999-9999</p>
+        </div>
     </section>
 
     <section id="cadastro-usuario">
         <div class="container">
-            <h2>Faça parte da Família AuMiaus</h2>
-            <p style="text-align: center; margin-bottom: 20px;">Cadastre-se para receber novidades e descontos exclusivos!</p>
+            <h2>🚀 Faça parte da Família</h2>
+            <p style="text-align: center; margin-bottom: 30px;">
+                Cadastre-se para agendar serviços e receber descontos exclusivos!
+            </p>
             
             <form id="form-cadastro">
-                <input type="text" id="cad-nome_completo" placeholder="Nome Completo" required>
-                <input type="email" id="cad-email" placeholder="E-mail" required>
-                <input type="text" id="cad-mensagem" placeholder="Mensagem" required>
-                <button type="submit">Cadastrar</button>
+                <input type="text" id="cad-nome_completo" placeholder="Nome Completo do Tutor" required>
+                <input type="email" id="cad-email" placeholder="Seu melhor E-mail" required>
+                <textarea id="cad-mensagem" rows="3" placeholder="Mensagem (Nome do Pet, Raça, Dúvidas...)"></textarea>
+                
+                <button type="submit">Cadastrar Agora</button>
             </form>
         </div>
     </section>
 
     <footer>
-        <p>AuMiaus 2025 - Feito para estudo</p>
+        <p>&copy; 2026 AuMiaus PetShop - Desenvolvido por Alex Almeida Mariano</p>
+        <p style="font-size: 0.8rem; opacity: 0.7;">Projeto de Estudo Full Stack & QA</p>
     </footer>
-<script src="app.js"></script>
+
+    <script src="app.js"></script>
 </body>
 </html>

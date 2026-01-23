@@ -1,108 +1,243 @@
+/* Importando uma fonte moderna do Google */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+
+:root {
+    /* Variáveis de Cor para facilitar manutenção */
+    --cor-primaria: #ff8c00;    /* Laranja Original */
+    --cor-secundaria: #008080;  /* Verde Azulado Original */
+    --cor-fundo: #f4f7f6;       /* Cinza muito suave */
+    --cor-branco: #ffffff;
+    --sombra: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra leve para os cards */
+}
+
+/* Reset Básico */
+* {
+    box-sizing: border-box; /* Garante que padding não estoure o tamanho */
+}
+
+html {
+    scroll-behavior: smooth; /* Faz a rolagem ser suave ao clicar no menu */
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Nunito', sans-serif; /* Fonte amigável */
     margin: 0;
-    background-color: #f4f4f4;
+    background-color: var(--cor-fundo);
+    color: #333;
+    line-height: 1.6;
 }
 
+/* --- HEADER E NAVEGAÇÃO --- */
 header {
-    background-color: #ff8c00;
-    color: white;
-    padding: 15px 20px; 
-    text-align: center;
+    background: linear-gradient(135deg, var(--cor-primaria), #ffaa42);
+    /* Aumentamos o padding vertical para caber o logo maior */
+    padding: 15px 50px; 
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    
+    /* Layout Flex: Logo na esquerda, Menu na direita */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
+header h1 {
+    margin: 0;
+    line-height: 0; /* Remove espaços extras do H1 */
+}
 
 header h1 img {
-    height: 70px; 
-    width: auto; 
+    height: 75px; /* Aumentado de 50px para 75px */
+    width: auto;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2)); /* Sombra para destacar do fundo */
+    transition: transform 0.3s;
 }
 
+header h1 img:hover {
+    transform: scale(1.05); /* Logo dá um leve zoom ao passar o mouse */
+}
+
+/* Container dos botões */
 header nav {
-    margin-top: 10px; 
+    display: flex;
+    gap: 15px; /* Espaço entre os botões */
+    align-items: center;
 }
 
+/* Estilo dos Botões Normais (Sobre, Serviços, Contato) */
 header a {
     color: white;
     text-decoration: none;
-    font-weight: bold;
-    margin: 0 15px; 
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border-radius: 30px; /* Formato de pílula */
+    background-color: rgba(255, 255, 255, 0.15); /* Efeito de vidro translúcido */
+    backdrop-filter: blur(5px); /* Desfoque no fundo do botão */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
 }
 
+/* Efeito Hover nos Botões Normais */
+header a:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-3px); /* Botão sobe levemente */
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+
+/* --- Destaque Especial para o Botão de Cadastro --- */
+/* O seletor abaixo pega especificamente o link que aponta para o cadastro */
+header a[href="#cadastro-usuario"] {
+    background-color: white; /* Fundo branco sólido */
+    color: var(--cor-primaria); /* Texto laranja */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    padding: 12px 25px; /* Um pouco maior que os outros */
+}
+
+header a[href="#cadastro-usuario"]:hover {
+    background-color: #fff;
+    color: var(--cor-secundaria); /* Texto muda para verde no hover */
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}
+
+/* --- SEÇÕES GERAIS --- */
 section {
-    background-color: white;
-    margin: 20px;
-    padding: 20px;
-    border-radius: 10px;
+    background-color: var(--cor-branco);
+    margin: 40px auto; /* Espaçamento maior entre seções */
+    padding: 40px;
+    border-radius: 15px;
+    max-width: 900px; /* Limita a largura para ficar elegante */
+    box-shadow: var(--sombra);
     text-align: center;
+
+    /* --- A LINHA MÁGICA ABAIXO --- */
+    /* Isso diz ao navegador: "Quando rolar até aqui, pare 120px antes" */
+    scroll-margin-top: 130px;
 }
 
 h2 {
-    color: #008080;
-    border-bottom: 2px solid #ff8c00;
+    color: var(--cor-secundaria);
+    font-size: 2rem;
+    margin-bottom: 30px;
+    position: relative;
     display: inline-block;
 }
 
+/* Detalhe visual embaixo do título */
+h2::after {
+    content: '';
+    display: block;
+    width: 50%;
+    height: 3px;
+    background-color: var(--cor-primaria);
+    margin: 5px auto 0;
+    border-radius: 2px;
+}
+
+/* --- GRID DE SERVIÇOS (Transformação da Lista) --- */
 ul {
     list-style-type: none;
     padding: 0;
-   
-    max-width: 400px; 
-    margin: 0 auto; 
+    display: grid; /* Mágica do Grid */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsivo automático */
+    gap: 20px;
 }
 
 .item-servico {
-    background-color: #e0f7fa;
+    background-color: white;
+    padding: 25px;
+    border: none; /* Removemos a borda simples */
+    border-top: 4px solid var(--cor-secundaria); /* Charme no topo */
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.item-servico:hover {
+    transform: translateY(-5px); /* Efeito de flutuar */
+}
+
+.item-servico h3 {
     margin: 10px 0;
+    color: var(--cor-primaria);
+}
+
+.preco {
+    font-weight: bold;
+    color: var(--cor-secundaria);
+    font-size: 1.2rem;
+    margin-top: auto; /* Empurra o preço para o final do card */
+}
+
+/* --- CONTATO --- */
+#contato p {
+    font-size: 1.1rem;
+}
+
+#contato a {
+    color: var(--cor-primaria);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* --- FORMULÁRIO (Mantendo seu estilo, mas polindo) --- */
+#cadastro-usuario {
+    background-color: #eafcfb; /* Fundo levemente esverdeado para destacar */
+    border: 1px solid var(--cor-secundaria);
+}
+
+#form-cadastro {
+    padding: 0; /* O container já tem padding */
+    box-shadow: none; /* Remove sombra interna duplicada */
+    background: transparent;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+#form-cadastro input, #form-cadastro textarea {
     padding: 15px;
-    border: 1px solid #008080;
-    border-radius: 5px; 
+    border: 2px solid #eee;
+    border-radius: 10px;
+    font-size: 16px;
+    font-family: inherit;
+    transition: border-color 0.3s;
+    width: 100%; /* Garante largura total */
+}
+
+#form-cadastro input:focus {
+    border-color: var(--cor-primaria);
+    outline: none;
+}
+
+#form-cadastro button {
+    background-color: var(--cor-primaria);
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(255, 140, 0, 0.3);
+    transition: all 0.2s;
+}
+
+#form-cadastro button:hover {
+    background-color: #e67e00;
+    transform: scale(1.02);
 }
 
 footer {
     text-align: center;
-    padding: 15px;
+    padding: 20px;
     background-color: #333;
-    color: white;
-}
-
-/* ESTILOS DA SEÇÃO CADASTRO */
-#cadastro-usuario {
-    background-color: #f0f2f5; /* Fundo diferente para destacar */
-}
-
-#form-cadastro {
-    background-color: #ffffff;
-    padding: 40px;
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto; /* Centraliza o card */
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-#form-cadastro input {
-    padding: 14px 16px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-size: 16px;
-    background-color: #f9f9f9;
-}
-
-#form-cadastro button {
-    background-color: #ff9f43; /* Laranja do logo */
-    color: white;
-    padding: 14px;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-#form-cadastro button:hover {
-    background-color: #e58e3c;
+    color: #bbb;
+    font-size: 0.9rem;
+    margin-top: 40px;
 }
